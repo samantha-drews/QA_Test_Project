@@ -27,10 +27,10 @@ NOTE: At time of writing, my machine has node.js version "v20.12.2" and Typescri
   - Run ```npx wdio wdio.conf.ts```
  
 #### Viewing Reports: 
-- Allure reports have not been fully implemented yet.
-- In the meantime, we can view results in the command line and in Saucelabs
+- Results can primarily be veiwed in the command line, and extra detail can be found in Saucelabs:
   - After a test run, you will see the logs print the number of passing & failing scenarios, along with a Saucelabs URL - e.g. ```Check out job at https://app.eu-central-1.saucelabs.com/tests/ebdaeb0b15d14b8b8b76654250490ca4?auth=d3d7033ab789749cca0a18c4fe32d5f0```
-  - Visit this link in order to see your Video, Screenshots, Logs and anything else relevant from the test run.
+  - Visit this link in order to see your Video, Screenshots, Logs and anything else relevant from the test run (especially helpful to help debug why a Scenario may be failing).
+ - After a test run, the directory allure-results gets created. This is where the raw data files generated from the test run are stored, that will allow us to generate Allure reports at a later stage.
     
  ## An explanation of the folder structure and test design approach:
  #### Folder Structure 
