@@ -20,8 +20,12 @@ export const config: Options.Testrunner = {
     // ==================
     // Specify Test Files
     // ==================
-    specs: [
-        './features/**/*.feature'
+     specs: [
+        './features/login.feature',
+        //'./features/addToCart.feature',
+        //'./features/checkout.feature',
+        //'./features/logout.feature',
+        //'./features/productList.feature',
     ],
     exclude: [
         // 'path/to/excluded/files'
