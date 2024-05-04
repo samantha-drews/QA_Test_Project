@@ -4,7 +4,7 @@ Feature: Logout
 # TODO: 1) Write the corresponding step definitions in /step-definitions/logout.steps.ts
 #       2) Update wdio.conf.ts to enable this feature file to run (uncomment line 27)
 
-  Scenario: As a logged in user, I am able to log out from any page
+  Scenario Outline: As a logged in user, I am able to log out from any page
     Given I am a logged in user on the "<webpage>"
     When I click the logout button
     Then I should be redirected to the login page
