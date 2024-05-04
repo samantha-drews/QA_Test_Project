@@ -28,6 +28,22 @@ NOTE: At time of writing, my machine has node.js version "v20.12.2" and Typescri
   - Visit this link in order to see your Video, Screenshots, Logs and anything else relevant from the test run.
     
  ## An explanation of the folder structure and test design approach:
- TODO 
+ #### Folder Structure 
+- test: This is the main directory. In a real-world project, where the application code is in the same repo, this is how we would separate test code from application code. 
+- features: This directory contains Gherkin feature files that describe the behavior of the application from a user's perspective.
+- step-definitions: This directory holds the implementation of the steps described in the feature files. Each step definition file contains code written in TypeScript that defines the behavior of the steps.
+- node_modules: This directory contains all the dependencies installed via npm (Node Package Manager). It's generated automatically by npm and should not be manually modified.
+- package-lock.json: This file locks down the exact version of each dependency and its transitive dependencies that were installed when npm install was run.
+- package.json: This file contains metadata about the project and specifies the project's dependencies, scripts, and other configurations. It's used by npm to manage the project's dependencies and scripts.
+tsconfig.json: This file contains TypeScript compiler options and configurations for the project. It specifies how TypeScript files should be compiled into JavaScript.
+- wdio.conf.ts: This file contains configuration settings for WebDriverIO, and defines browser capabilities, test suites, reporters, and other settings for running tests.
+
+ #### Test Design Approach
+- Started Exploratory testing to understand the site and highlight test cases that would be good to automate
+- Employed Behavior-Driven Development (BDD) principles to write clear and concise feature files outlining the behavior of the application:
+  - These scenarios are split into feature files per Web page.
+  - The Test Pyramid practice was followed (see assumption below - that unit test coverage is already existing).
+ 
  ## Any neccessary background information or assumptions about the test scenarios:
- TODO
+  - I have made the assumption that all input field validations would be already covered at unit test level e.g. min, max, empty, null, special characters, numbers, too long/too short, postcode invalid format etc.
+- I have made the assumption that the site is fully functioning as intended, as my assertions are based on how the site currently behaves. 
