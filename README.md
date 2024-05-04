@@ -17,6 +17,11 @@ If no version number is returned, please install it via your command line by run
 NOTE: At time of writing, my machine has node.js version "v20.12.2" and Typescript version "Version 5.4.5", so if you are having issues then it may be recommended to use these versions.
 
 #### Running Tests: 
+- Configure your Saucelabs credentials:
+  - You can get these credentials by signing up on: https://saucelabs.com/sign-up
+  - Once registered > Sign into the Saucelabs website > Click on Key icon to expose your details
+  - In wido.conf.ts, replace the <omitted> values where 'user'= your Username and 'key'= your Access Key/
+    - NOTE: Keep 'region' as eu assuming your Saucelabs account is set-up from Europe. If you have issues, you may need to change this value. See https://webdriver.io/docs/configuration/#region for more details if needed.
 - Open your command line
   - ```cd``` into the ```test``` directory
   - Run ```npx wdio wdio.conf.ts```
