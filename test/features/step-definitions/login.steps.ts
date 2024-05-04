@@ -10,8 +10,25 @@ When('I click the login button', () => {
     loginButton.click();
 });
 
-Then('I should see an error message', async () => {
-    const errorMessage = await $(`.error-message-container.error h3[data-test="error"]`);
-    const errorMessageText = await errorMessage.getText();
-    expect(errorMessageText).toContain('Epic sadface: Username is required');
+When('I login with {string} and {string}', async (username: string, password: string) => {
+    const usernameField = await $('#user-name');
+    await usernameField.setValue(username);
+
+    const passwordField = await $('#password');
+    await passwordField.setValue(password);
+
+    // Click login button
+    const loginButton = await $('#login-button');
+    await loginButton.click();
+});
+
+Then('I should see an error message saying {string}', async (expectedMessage) => {
+    const errorMessageElement = await $('.error-message-container.error h3[data-test="error"]');
+    const errorMessageText = await errorMessageElement.getText();
+    expect(errorMessageText).toContain(expectedMessage);
+});
+
+Then('I am directed to the product page', async () => {
+    const currentUrl = await browser.getUrl();
+    expect(currentUrl).toContain('https://www.saucedemo.com/inventory.html');
 });
