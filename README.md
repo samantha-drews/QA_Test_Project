@@ -3,34 +3,43 @@
 
 ## Instructions on how to set up, run the tests, and view the reports:
 #### Set-up: 
-- In your command line, verify you have node.js installed by running 
+- Verify you have **node.js** installed by running 
 ```node -v```
 
 If no version number is returned, or if your version is lower than 14, please download it from https://nodejs.org/en/download 
 
-- In your command line, verify you have Typescript installed by running
+- Verify you have **Typescript** installed by running
 ```tsc -v```
 
 If no version number is returned, please install it via your command line by running 
 ```npm install -g typescript```
 
-NOTE: At time of writing, my machine has node.js version "v20.12.2" and Typescript version "Version 5.4.5", so if you are having issues then it may be recommended to use these versions.
+- Verify you have **Allure Reporter** installed by running 
+```allure --version```
+If no version number is returned please download it using ```install npm install -g allure-commandline --save-dev```
 
-#### Running Tests: 
+NOTE: At time of writing, my machine has node.js "v20.12.2", Typescript "Version 5.4.5", and Allure "2.29.0". 
+If you are having issues then it may be recommended to use these versions.
+
+#### Configuration: 
 - Configure your Saucelabs credentials:
   - You can get these credentials by signing up on: https://saucelabs.com/sign-up
   - Once registered > Sign into the Saucelabs website > Click on Key icon to expose your details
   - In wido.conf.ts, replace the <omitted> values where 'user'= your Username and 'key'= your Access Key/
     - NOTE: Keep 'region' as eu assuming your Saucelabs account is set-up from Europe. If you have issues, you may need to change this value. See https://webdriver.io/docs/configuration/#region for more details if needed.
+   
+#### Running Tests: 
 - Open your command line
   - ```cd``` into the ```test``` directory
   - Run ```npx wdio wdio.conf.ts```
  
-#### Viewing Reports: 
-- Results can primarily be veiwed in the command line, and extra detail can be found in Saucelabs:
+#### Viewing Results: 
+- Results can be veiwed in the command line, and extra detail can be found in Saucelabs:
   - After a test run, you will see the logs print the number of passing & failing scenarios, along with a Saucelabs URL - e.g. ```Check out job at https://app.eu-central-1.saucelabs.com/tests/ebdaeb0b15d14b8b8b76654250490ca4?auth=d3d7033ab789749cca0a18c4fe32d5f0```
   - Visit this link in order to see your Video, Screenshots, Logs and anything else relevant from the test run (especially helpful to help debug why a Scenario may be failing).
- - After a test run, the directory allure-results gets created. This is where the raw data files generated from the test run are stored, that will allow us to generate Allure reports at a later stage.
+- Allure Reports will also show the results:
+  - Run ```allure generate allure-results --clean -o allure-report``` to generate the report
+  - Run  ```allure open allure-report``` to view the report
     
  ## An explanation of the folder structure and test design approach:
  #### Folder Structure 
